@@ -21,18 +21,22 @@ const App = () => {
       <h3>Student Database</h3>
       <div>
         <table border='1' cellPadding='10'>
-          <tr>
-            <td>Name</td>
-            <td>Department</td>
-            <td>Email</td>
-          </tr>
-          {students.map((student) => {
-            <tr key={student.id}>
-              <td>{student.name}</td>
-              <td>{student.department}</td>
-              <td>{student.email}</td>
-            </tr>;
-          })}
+          <thead>
+            <tr>
+              <td>Name</td>
+              <td>Department</td>
+              <td>Email</td>
+            </tr>
+          </thead>
+          <tbody>
+            {students.map((student) => (
+              <tr key={student.id}>
+                <td>{student.name}</td>
+                <td>{student.department}</td>
+                <td>{student.email}</td>
+              </tr>
+            ))}
+          </tbody>
         </table>
       </div>
     </div>
