@@ -1,48 +1,18 @@
-import { useEffect, useState } from 'react';
-import studentService from './services/student.service';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import PageNotFound from './component/PageNotFound';
+import StudentList from './component/StudentList';
 
-const App = () => {
-  const [students, setStudent] = useState([]);
-
-  useEffect(() => {
-    studentService
-      .getAll()
-      .then((response) => {
-        console.log('printing students', response.data);
-        setStudent(response.data);
-      })
-      .catch((error) => {
-        console.log('There is error', error);
-      });
-  }, []);
-
+function App() {
   return (
-    <div className='container'>
-      <h3>Student Database</h3>
-      <hr />
+    <BrowserRouter>
       <div>
-        <table className='table table-bordered table-striped'>
-          <thead className='thead-dark'>
-            <tr>
-              <th>Name</th>
-              <th>Department</th>
-              <th>Email</th>
-            </tr>
-          </thead>
-          <tbody>
-            {students.map((student) => (
-              <tr key={student.id}>
-                <td>{student.name}</td>
-                <td>{student.department}</td>
-                <td>{student.email}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <Switch>
+          <Route exact path='/' component={StudentList} />
+          <Route path='*' component={PageNotFound} />
+        </Switch>
       </div>
-    </div>
+    </BrowserRouter>
   );
-};
+}
 
 export default App;
