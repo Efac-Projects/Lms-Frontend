@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import studentService from './services/student.service';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
   const [students, setStudent] = useState([]);
@@ -17,15 +18,16 @@ const App = () => {
   }, []);
 
   return (
-    <div>
+    <div className='container'>
       <h3>Student Database</h3>
+      <hr />
       <div>
-        <table border='1' cellPadding='10'>
-          <thead>
+        <table className='table table-bordered table-striped'>
+          <thead className='thead-dark'>
             <tr>
-              <td>Name</td>
-              <td>Department</td>
-              <td>Email</td>
+              <th>Name</th>
+              <th>Department</th>
+              <th>Email</th>
             </tr>
           </thead>
           <tbody>
