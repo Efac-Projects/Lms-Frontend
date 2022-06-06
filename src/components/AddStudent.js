@@ -55,7 +55,9 @@ const AddStudent = () => {
   }, []);
   return (
     <div className='container'>
-      <h3>Add Student</h3>
+      <div className='mt-5'>
+        <h3>Add Student</h3>
+      </div>
       <hr />
       <form>
         <div className='form-group'>
@@ -89,7 +91,10 @@ const AddStudent = () => {
           />
         </div>
         <div>
-          <button onClick={(e) => saveStudent(e)} className='btn btn-primary'>
+          <button
+            onClick={(e) => saveStudent(e)}
+            className='btn btn-primary btn-dark'
+          >
             Save
           </button>
         </div>

@@ -36,14 +36,16 @@ const StudentList = () => {
 
   return (
     <div className='container'>
-      <h3>List of Students</h3>
+      <div className='mt-5'>
+        <h3>Student Management System</h3>
+      </div>
       <hr />
       <div>
-        <Link to='/add' className='btn btn-primary mb-2'>
+        <Link to='/add' className='btn btn-primary mb-2 btn-dark'>
           Add Student
         </Link>
-        <table className='table table-bordered table-striped'>
-          <thead className='thead-dark'>
+        <table className='table table-bordered table-striped table-hover'>
+          <thead className='thead-dark table-striped '>
             <tr>
               <th>Name</th>
               <th>Email</th>
@@ -59,14 +61,14 @@ const StudentList = () => {
                 <td>{student.department}</td>
                 <td>
                   <Link
-                    className='btn btn-info'
+                    className='btn btn-info btn-dark'
                     to={`/students/edit/${student.id}`}
                   >
                     Update
                   </Link>
 
                   <button
-                    className='btn btn-danger ml-2'
+                    className='btn ml-2 btn-secondary'
                     onClick={() => {
                       handleDelete(student.id);
                     }}
